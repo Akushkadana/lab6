@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Мой блог</title>
+</head>
+<body>
+    <h1>Список статей</h1>
+
+    {% for blog in blogs %}
+        <h2>
+            <a href="{% url 'blog_detail' blog.pk %}">
+                {{ blog.title }}
+            </a>
+        </h2>
+        <p>{{ blog.content }}</p>
+        <p>Просмотры: {{ blog.likes }}</p>
+    {% empty %}
+        <p>Статей пока нет.</p>
+    {% endfor %}
+</body>
+</html>
